@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <vue-picture-viewer :imgData="imgUrl" :switch="true" v-if="imgUrl"></vue-picture-viewer>
+    <!--<vue-picture-viewer :imgData="imgUrl" :switch="true" v-if="imgUrl"></vue-picture-viewer>-->
   </div>
 </template>
 
@@ -10,18 +10,18 @@ export default {
   data () {
     return {
       imgUrl: [{
-          url:'/testImg/test1.jpg',
+          url:'http://p8ny46w8x.bkt.clouddn.com/test1.jpg',
           name: 'test1.jpg'
         },
         {
-          url: '/testImg/test2.jpg',
+          url: 'http://p8ny46w8x.bkt.clouddn.com/test2.jpg',
           name: 'test2.jpg'
         }, {
-          url: '/testImg/test3.jpg',
+          url: 'http://p8ny46w8x.bkt.clouddn.com/test3.jpg',
           name: 'test3.jpg'
         },
         {
-          url: '/testImg/test4.jpg',
+          url: 'http://p8ny46w8x.bkt.clouddn.com/test4.jpg',
           name: 'test4.jpg'
         }]
     }

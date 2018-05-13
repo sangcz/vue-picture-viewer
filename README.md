@@ -2,6 +2,11 @@
 
 vue-picture-viewer is a picture viewer for Vue.js.
 
+
+## Demo
+
+[LiveDemo](http://p8ny46w8x.bkt.clouddn.com/index.html?2018-05-13)
+
 ## Install
 
 ```bash
@@ -18,23 +23,19 @@ $ npm install vue-picture-viewer
 
   // in CommonJS
   const vuePictureViewer = require('vue-picture-viewer')
+  
+  Vue.use(vuePictureViewer)
 ```
 
 ### Import using script tag
 
 ```html
    <script src="../node_modules/vue-picture-viewer/vue-picture-viewer.js"></script>
+   
+   // 作为组件引用
+   <vue-picture-viewer></vue-picture-viewer>
 ```
 
-```js
-    const vuePictureViewer = vuePictureViewer
-    new Vue({
-      el: '#app',
-      components: {
-        'vue-picture-viewer': vuePictureViewer
-      }
-    })
-```
 
 ## Usage
 
@@ -50,13 +51,6 @@ Work on Vue instance
   | imgData| Array | imgUrl and imgName| - |
   | switch | Boolean | Whether to enable thumbnails | true |
 
-## Development
-
-Watching with hot-reload
-
-```bash
-  $ npm run dev
-```
 
 ## License
 
