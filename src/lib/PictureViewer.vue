@@ -1,16 +1,20 @@
 <template>
-    <div :style="maskContainer">
+    <div :style="maskContainer" v-show="dispalyViewer">
       <!-- 关闭按钮 -->
-      <div class="closeBtn">
+      <div class="closeBtn" @click="closeViewer">
         <i class="iconfont icon-guanbi"></i>
       </div>
       <!-- 图片容器 -->
       <div class="imgContainer" ref="imgContainer" :style="imgContainer">
         <!-- 左边箭头 -->
-        <span class="leftArrow"><i class="iconfont icon-zuo-yuan"></i></span>
+        <div class="leftArrowCon" @click="handlePrev">
+          <span class="leftArrow"><i class="iconfont icon-zuo-yuan"></i></span>
+        </div>
         <img :src="bigImgUrl" ref="bigImg" :style="bigImg" alt="">
         <!-- 右边箭头 -->
-        <span class="rightArrow"><i class="iconfont icon-you-yuan"></i></span>
+        <div class="rightArrowCon" @click="handleNext">
+          <span class="rightArrow"><i class="iconfont icon-you-yuan"></i></span>
+        </div>
         <!-- 操作按钮 -->
         <div class="handleContainer">
           <ul>
@@ -19,6 +23,10 @@
             </li>
           </ul>
         </div>
+        <!-- tips -->
+        <transition name="fade">
+          <span v-show="showTips" class="tips">{{tipsText}}</span>
+        </transition>
       </div>
       <!-- 缩略图容器 -->
       <div class="thumbnailContainer">
@@ -52,8 +60,12 @@
       },
       data () {
         return {
+          dispalyViewer: true,
           // 图片容器数据
+          i: 0,
           bigImgUrl: this.imgUrl[0],
+          showTips: false,
+          tipsText: '',
           bigImgConWidth: '',
           bigImgConHeight: '',
           maskContainer: {
@@ -143,7 +155,46 @@
         },
         // 点击缩略图切换图片
         switchImgUrl (num) {
+          let _this = this
           this.bigImgUrl = this.imgUrl[num]
+          _this.init()
+        },
+        // 切换到上一张
+        handlePrev () {
+          let _this = this
+          this.i--
+          if (this.i === -1) {
+            _this.tips('已经是第一张了!')
+            this.i = 0
+          } else {
+            this.bigImgUrl = this.imgUrl[this.i]
+            _this.init()
+          }
+        },
+        // 切换到下一张
+        handleNext () {
+          let _this = this
+          this.i++
+          if (this.i === this.imgUrl.length ) {
+            _this.tips('已经是最后一张了!')
+            _this.i = Number(this.imgUrl.length) - 1
+          } else {
+            this.bigImgUrl = this.imgUrl[this.i]
+            _this.init()
+          }
+        },
+        // 提示框
+        tips (msg) {
+          let _this = this
+          _this.showTips = true
+          _this.tipsText = msg
+          setTimeout(function () {
+            _this.showTips = false
+          }, 1000)
+        },
+        // 关闭查看器
+        closeViewer () {
+          this.dispalyViewer = false
         }
       }
   }
@@ -159,6 +210,25 @@
     top: 20px;
     right: 20px;
   }
+  .imgContainer .leftArrowCon {
+    width: 30%;
+    height: 100%;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    cursor: pointer;
+  }
+  .imgContainer .rightArrowCon {
+    width: 30%;
+    height: 100%;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
   .imgContainer .leftArrow {
     position: absolute;
     top: 50%;
@@ -171,6 +241,21 @@
     top: 50%;
     right: 30px;
     margin-top: -30px;
+  }
+  .imgContainer .tips {
+    padding: 10px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -60px;
+    margin-top: -20px;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 14px;
   }
   .handleContainer {
     width: 230px;
@@ -208,7 +293,7 @@
     background: rgba(0,0,0,0.2);
     position: absolute;
     left: 50%;
-    bottom: 40px;
+    bottom: 0;
     transform: translate(-50%, 0%);
     overflow-x: auto;
     overflow-y: hidden;
