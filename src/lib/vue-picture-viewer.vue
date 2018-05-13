@@ -56,7 +56,7 @@
 
 <script>
   export default {
-      name: 'picture-viewer',
+      name: 'vue-picture-viewer',
       props: {
         imgData: {
           type: Array,

@@ -1,13 +1,13 @@
-import pictureViewer from './PictureViewer'
+import vuePictureViewer from './vue-picture-viewer'
 
-const viewer = {
+const pictureviewer = {
   install (Vue, options) {
-    Vue.component(pictureViewer.name, pictureViewer)
+    Vue.component(vuePictureViewer.name, vuePictureViewer)
   }
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(viewer)
+  window.Vue.use(pictureviewer)
 }
 
-export default viewer
+export default pictureviewer
