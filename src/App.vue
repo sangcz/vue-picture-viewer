@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <picture-viewer :imgUrl="imgUrl"></picture-viewer>
+    <picture-viewer :imgUrl="imgUrl" v-if="imgUrl"></picture-viewer>
   </div>
 </template>
 
