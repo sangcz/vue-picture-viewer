@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <picture-viewer :imgUrl="imgUrl" v-if="imgUrl"></picture-viewer>
+    <picture-viewer :imgData="imgUrl" :switch="true" v-if="imgUrl"></picture-viewer>
   </div>
 </template>
 
@@ -9,14 +9,33 @@ export default {
   name: 'app',
   data () {
     return {
-      imgUrl: ['http://p17niap4t.bkt.clouddn.com/902397dda144ad348d7a3cbedba20cf430ad85c6.jpg', 'http://p17niap4t.bkt.clouddn.com/20180504172345.jpg', 'http://p17niap4t.bkt.clouddn.com/timg.jpg']
+      imgUrl: [{
+          url:'/testImg/test1.jpg',
+          name: 'test1.jpg'
+        },
+        {
+          url: '/testImg/test2.jpg',
+          name: 'test2.jpg'
+        }, {
+          url: '/testImg/test3.jpg',
+          name: 'test3.jpg'
+        },
+        {
+          url: '/testImg/test4.jpg',
+          name: 'test4.jpg'
+        }]
     }
   }
 }
 </script>
 
 <style>
-#app {
-  background: #fff;
+* {
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  width: 100%;
+  height: 100%;
 }
 </style>
