@@ -32,7 +32,7 @@ $ npm install vue-picture-viewer
 ```html
    <script src="../node_modules/vue-picture-viewer/vue-picture-viewer.js"></script>
    
-   // 作为组件引用
+   // as a component reference
    <vue-picture-viewer></vue-picture-viewer>
 ```
 
