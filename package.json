@@ -1,7 +1,8 @@
 {
   "name": "vue-picture-viewer",
-  "description": "A Vue.js project",
-  "version": "1.0.0",
+  "description": "vue-picture-viewer is a picture viewer for Vue.js.",
+  "Keywords": "Vue.js",
+  "version": "1.0.1",
   "author": "Joy Sang",
   "license": "MIT",
   "private": false,

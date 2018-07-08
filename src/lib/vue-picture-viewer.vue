@@ -301,6 +301,7 @@
     background: rgba(0,0,0,0.5);
     color: #fff;
     line-height: 40px;
+    position: relative;
   }
   .imgName .left {
     display: inline-block;
@@ -309,8 +310,12 @@
   }
   .imgName .center {
     display: inline-block;
-    width: 80%;
+    width: auto;
     text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   .imgName .closeBtn {
     position: absolute;
