@@ -5,7 +5,7 @@ vue-picture-viewer is a picture viewer for Vue.js.
 
 ## Demo
 
-[LiveDemo](http://p8ny46w8x.bkt.clouddn.com/index.html?2018-05-13)
+[LiveDemo](http://p8ny46w8x.bkt.clouddn.com/index.html?2018-09-22)
 
 ## Install
 
